@@ -1,0 +1,22 @@
+services:
+  rest-with-asp-net-10-cviana:
+    image: cedsv/rest-with-asp-net-10-cviana:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MSSQLServerConnection__MSSQLServerConnectionString=Data Source=host.docker.internal,1433;Initial Catalog=asp_net_10_erudio;User ID=sa;Password=@Admin1234;TrustServerCertificate=true;
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    build:
+      context: .
+      dockerfile: rest-with-asp-net-10-cviana/Dockerfile
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      - erudio-network
+networks:
+  erudio-network:
+   driver: bridge

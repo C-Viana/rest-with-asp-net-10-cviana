@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="rest-with-asp-net-10-cviana.test/rest-with-asp-net-10-cviana.test.csproj" Id="e656400e-0b42-43f2-960b-9028c105e123" />
+  <Project Path="rest-with-asp-net-10-cviana/rest-with-asp-net-10-cviana.csproj" />
+</Solution>
