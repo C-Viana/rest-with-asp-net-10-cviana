@@ -44,3 +44,6 @@ jobs:
       with:
         username: ${{secrets.DOCKER_USERNAME}}
         password: ${{secrets.DOCKER_ACCESS_TOKEN}}
+    
+    - name: Docker Compose Build
+      run: docker compose build
