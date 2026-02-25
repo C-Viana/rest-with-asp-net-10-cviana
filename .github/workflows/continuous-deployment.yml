@@ -47,3 +47,10 @@ jobs:
     
     - name: Docker Compose Build
       run: docker compose build
+    
+    - name: Push to Docker Hub Container Registry
+      working-directory: rest-with-asp-net-10-cviana
+      run: |
+        docker tag ${{secrets.DOCKER_USERNAME}}/rest-with-asp-net-10-cviana:latest ${{secrets.DOCKER_USERNAME}}/rest-with-asp-net-10-cviana:${{github.run_id}}
+        docker push ${{secrets.DOCKER_USERNAME}}/rest-with-asp-net-10-cviana:${{github.run_id}}
+        docker push ${{secrets.DOCKER_USERNAME}}/rest-with-asp-net-10-cviana:latest
