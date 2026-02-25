@@ -13,7 +13,7 @@ jobs:
       run: |
         docker run -d --name sqlserver_test \
         -e "ACCEPT_EULA=Y" \
-        -e "MSSQL_SA_PASSWORD=@Admin1234"
+        -e "MSSQL_SA_PASSWORD=@Admin1234" \
         -p 1433:1433 \
         mcr.microsoft.com/mssql/server:2022-latest
 
